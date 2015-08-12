@@ -87,7 +87,7 @@ function link_pm2 {
   fi
   echo -e "${GREEN}[OK]${NEUTRAL}"
 
-  pm2 link $SECRET_ID $PUBLIC_ID &>/dev/null
+  pm2 link $SECRET_ID $PUBLIC_ID
 }
 
 #
