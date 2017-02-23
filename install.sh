@@ -34,7 +34,7 @@ function install_nvm {
     already nvm
   else
     installing nvm
-    wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
+    wget -qO- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
     . ~/.nvm/nvm.sh
     success nvm
   fi
@@ -70,7 +70,7 @@ function link_pm2 {
   echo -e "${GREEN}[~]Checking connectivity with Keymetrics servers...${NEUTRAL}"
 
   echo -en "${GREEN}[~]Checking port 80 connectivity...${NEUTRAL}"
-  nc -z alphacentauri.keymetrics.io 80 &>/dev/null
+  nc -z app.keymetrics.io 80 &>/dev/null
   if [ $? == "1" ]; then
     echo -e "${RED}[KO]${NEUTRAL}"
     echo -e "${RED}[!]Connectivity issues when trying to connect to alphacentauri.keymetrics.io:80${NEUTRAL}"
@@ -78,14 +78,14 @@ function link_pm2 {
   fi
   echo -e "${GREEN}[OK]${NEUTRAL}"
 
-  echo -en "${GREEN}[~]Checking port 43554 connectivity...${NEUTRAL}"
-  nc -z alphacentauri.keymetrics.io 43554 &>/dev/null
-  if [ $? == "1" ]; then
-    echo -e "${RED}[KO]${NEUTRAL}"
-    echo -e "${RED}[!]Connectivity issues when trying to connect to alphacentauri.keymetrics.io:43554${NEUTRAL}"
-    exit
-  fi
-  echo -e "${GREEN}[OK]${NEUTRAL}"
+  # echo -en "${GREEN}[~]Checking port 43554 connectivity...${NEUTRAL}"
+  # nc -z app.keymetrics.io 43554 &>/dev/null
+  # if [ $? == "1" ]; then
+  #   echo -e "${RED}[KO]${NEUTRAL}"
+  #   echo -e "${RED}[!]Connectivity issues when trying to connect to alphacentauri.keymetrics.io:43554${NEUTRAL}"
+  #   exit
+  # fi
+  # echo -e "${GREEN}[OK]${NEUTRAL}"
 
   pm2 link $SECRET_ID $PUBLIC_ID
 }
