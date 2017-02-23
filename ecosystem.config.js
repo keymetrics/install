@@ -7,7 +7,6 @@ module.exports = {
       ref  : "origin/master",
       repo : "git@github.com:keymetrics/install.git",
       path : "/var/www/install",
-      path : "/var/www/production",
       "post-deploy" : "pm2 startOrRestart ecosystem.config.js --env production"
     }
   }
