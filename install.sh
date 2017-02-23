@@ -25,6 +25,21 @@ function success {
   echo -e "${GREEN}[+]$1 successfully installed${NEUTRAL}"
 }
 
+function success {
+  echo -e "${GREEN}[+]$1 successfully installed${NEUTRAL}"
+}
+
+function exitBanner {
+    echo "#"
+    echo "#"
+    echo "#  Node.js and PM2 is now installed"
+    echo "#  It is also linked to Keymetrics!"
+    echo "#"
+    echo "#  Now exit the shell and login back to be able to use the PM2 CLI"
+    echo "#"
+    echo "#"
+}
+
 #
 ## Logic
 #
@@ -98,6 +113,7 @@ install_nvm
 install_node
 install_pm2
 link_pm2
+exitBanner
 
 echo
 echo -e "${GREEN}[+]Done.${NEUTRAL}"
